@@ -179,9 +179,18 @@ namespace Maths
 	inline float magnitude(const vec3& v) { return sqrtf(dotProduct(v, v)); }
 	inline float magnitude(const vec4& v) { return sqrtf(dotProduct(v, v)); }
 
+	// linear transitions over time, point a to point b
 	inline vec3 lerp(const vec3& v_i, const vec3& v_f, float k) { return (1.f - k) * v_i + (k * v_f); };
 	inline vec4 lerp(const vec4& v_i, const vec4& v_f, float k) { return (1.f - k) * v_i + (k * v_f); };
 
+
+	// rotations, less computationally expensive, inaccurate
+	// only use for small angle rotations
+	// https://keithmaggio.wordpress.com/2011/02/15/math-magician-lerp-slerp-and-nlerp/
+	inline vec3 nlerp(const vec3& v_i, const vec3& v_f, float k) { return normalize(lerp(v_i, v_f, k)); };
+	inline vec4 nlerp(const vec4& v_i, const vec4& v_f, float k) { return normalize(lerp(v_i, v_f, k)); };
+
+	// rotations, more computationally expensive
 	vec3 slerp(const vec3& v_i, const vec3& v_f, float k);
 	vec4 slerp(const vec4& v_i, const vec4 & v_f, float k);
 

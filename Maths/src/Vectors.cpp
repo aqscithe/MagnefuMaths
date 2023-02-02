@@ -42,7 +42,7 @@ namespace Maths
 
     vec4 slerp(const vec4& v_i, const vec4& v_f, float k)
     {
-        float theta = acos(dotProduct(v_i, v_f));
+        float theta = acos(dotProduct(normalize(v_i), normalize(v_f)));
         return ((sin((1 - k) * theta) / sin(theta)) * v_i) + ((sin(k * theta) / sin(theta)) * v_f);
     }
 }

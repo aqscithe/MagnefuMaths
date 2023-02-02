@@ -46,10 +46,12 @@ int main()
 
 	{
 		factor = 0.5f;
-		Maths::vec3 one{ 1, 1, 0 };
-		Maths::vec3 two{ 0, 1, 1 };
+		Maths::vec3 one{ -1.f, 6.f, 3.5f};
+		Maths::vec3 two{ -1.f, 6.f, 3.48f };
 		std::cout << "\n Lerp of " << factor << " between " << one << " and " << two << ": " << Maths::lerp(one, two, factor) << std::endl;
 		std::cout << "\n SLerp of " << factor << " between " << one << " and " << two << ": " << Maths::slerp(one, two, factor) << std::endl;
+		std::cout << "\n NLerp of " << factor << " between " << one << " and " << two << ": " << Maths::nlerp(one, two, factor) << std::endl;
+
 	}
 	
 	
