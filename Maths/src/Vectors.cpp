@@ -32,4 +32,17 @@ namespace Maths
             a.x * b.y - b.x * a.y
         };
     }
+
+    vec3 slerp(const vec3& v_i, const vec3& v_f, float k)
+    {
+        // theta is in radians
+        float theta = acos(dotProduct(Maths::normalize(v_i), Maths::normalize(v_f)));
+        return ((sin((1 - k) * theta) / sin(theta)) * v_i) + ((sin(k * theta) / sin(theta)) * v_f);
+    }
+
+    vec4 slerp(const vec4& v_i, const vec4& v_f, float k)
+    {
+        float theta = acos(dotProduct(normalize(v_i), normalize(v_f)));
+        return ((sin((1 - k) * theta) / sin(theta)) * v_i) + ((sin(k * theta) / sin(theta)) * v_f);
+    }
 }
