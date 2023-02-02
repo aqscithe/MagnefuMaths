@@ -40,13 +40,18 @@ int main()
 		Maths::vec4 pointA{ 0.2f, 1.f, 0.6f, 1.f };
 		Maths::vec4 pointB{ 0.7f, 1.f, 0.2f, 1.f };
 
-		std::cout << "\n Lerp of " << factor << " between " << pointA << " and " << pointB << ": " << Maths::lerp(pointA, pointB, factor);
+		std::cout << "\n Lerp of " << factor << " between " << pointA << " and " << pointB << ": " << Maths::lerp(pointA, pointB, factor) << std::endl;
 
 	}
 
-	Maths::vec3 one{ 1, 1, 0 };
-	Maths::vec3 two{ 0, 1, 1 };
-	Maths::slerp(one, two, 0.2f);
+	{
+		factor = 0.5f;
+		Maths::vec3 one{ 1, 1, 0 };
+		Maths::vec3 two{ 0, 1, 1 };
+		std::cout << "\n Lerp of " << factor << " between " << one << " and " << two << ": " << Maths::lerp(one, two, factor) << std::endl;
+		std::cout << "\n SLerp of " << factor << " between " << one << " and " << two << ": " << Maths::slerp(one, two, factor) << std::endl;
+	}
+	
 	
 
 }
