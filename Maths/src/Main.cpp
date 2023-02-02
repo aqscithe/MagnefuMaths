@@ -43,6 +43,10 @@ int main()
 		std::cout << "\n Lerp of " << factor << " between " << pointA << " and " << pointB << ": " << Maths::lerp(pointA, pointB, factor);
 
 	}
+
+	Maths::vec3 one{ 1, 1, 0 };
+	Maths::vec3 two{ 0, 1, 1 };
+	Maths::slerp(one, two, 0.2f);
 	
 
 }

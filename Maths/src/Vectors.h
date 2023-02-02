@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "Common.h"
 
 namespace Maths
 {
@@ -172,13 +173,32 @@ namespace Maths
 	vec4 normalize(const vec4& v);
 	vec3 crossProduct(const vec3& v, const vec3& k);
 
-	inline float dotProduct(const vec3& a, const vec3& b) { return a.x * b.x + a.y * b.y + a.z * b.z; }
-	inline float dotProduct(const vec4& a, const vec4& b) { return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w; }
+	inline float dotProduct(const vec3& a, const vec3& b) 
+	{
+		vec3 ua = normalize(a);
+		vec3 ub = normalize(b);
+		return ua.x * ub.x + ua.y * ub.y + ua.z * ub.z; 
+	}
+	inline float dotProduct(const vec4& a, const vec4& b) 
+	{ 
+		vec4 ua = normalize(a);
+		vec4 ub = normalize(b);
+		return ua.x * ub.x + ua.y * ub.y + ua.z * ub.z + ua.w * ub.w; 
+	}
 
 	inline float magnitude(const vec3& v) { return sqrtf(dotProduct(v, v)); }
 	inline float magnitude(const vec4& v) { return sqrtf(dotProduct(v, v)); }
 
 	inline vec3 lerp(const vec3& initial, const vec3& final, float factor) { return (1.f - factor) * initial + (factor * final); };
 	inline vec4 lerp(const vec4& initial, const vec4& final, float factor) { return (1.f - factor) * initial + (factor * final); };
+
+	inline vec3 slerp(const vec3& v_i, const vec3 & v_f, float k) 
+	{ 
+		// theta is in radians
+		float theta = acos(dotProduct(v_i, v_f));
+		return ((sin((1 - k) * theta) / sin(theta)) * v_i) + ((sin(k * theta) / sin(theta)) * v_f);
+	};
+	//inline vec4 slerp(const vec4& initial, const vec4 & final, float factor) { return (1.f - factor) * initial + (factor * final); };
+
 #pragma endregion
 }

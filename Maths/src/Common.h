@@ -11,6 +11,7 @@ namespace Maths
 	inline float cos(float x) { return cosf(x); }
 	inline float sin(float x) { return sinf(x); }
 	inline float tan(float x) { return tanf(x); }
+	inline float acos(float x) { return acosf(x); }
 
 	inline float toRadians(float degrees) { return degrees * TAU / 360.f; };
 	inline float toDegrees(float radians) { return radians * 360.f / TAU; };
