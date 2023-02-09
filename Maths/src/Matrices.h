@@ -2,9 +2,16 @@
 
 #include "Vectors.h"
 
+
 namespace Maths
 {
 #pragma Union Declarations
+
+	union mat2x4
+	{
+		float e[8];
+		vec4 c[2];
+	};
 
 	union mat4
 	{
@@ -66,6 +73,6 @@ namespace Maths
 	mat4 perspective(float fovY, float aspect, float near, float far);
 	mat4 frustum(float left, float right, float bottom, float top, float near, float far);
 	bool invert(const float in[16], float out[16]);
-	//mat4 transpose(const mat4&);
+	mat4 transpose(const mat4&);
 #pragma endregion
 }
