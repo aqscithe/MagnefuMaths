@@ -144,14 +144,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Examples.cpp" />
     <ClCompile Include="src\Matrices.cpp" />
+    <ClCompile Include="src\Primitive2D.cpp" />
+    <ClCompile Include="src\Primitive3D.cpp" />
     <ClCompile Include="src\Quaternion.cpp" />
     <ClCompile Include="src\Vectors.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common.h" />
     <ClInclude Include="src\Matrices.h" />
+    <ClInclude Include="src\Primitive2D.h" />
+    <ClInclude Include="src\Primitive3D.h" />
+    <ClInclude Include="src\PrimitiveCommon.h" />
     <ClInclude Include="src\Quaternion.h" />
     <ClInclude Include="src\Vectors.h" />
   </ItemGroup>
